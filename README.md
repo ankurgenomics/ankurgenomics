@@ -160,7 +160,7 @@ Significance of hepatocyte polyploidization in liver physiology and pathology
 
 ## 🎯 What I'm Looking For
 
-Senior / Staff ML Engineer · Agentic AI Engineer · Research Engineer · Applied Scientist
+Senior / Staff ML Engineer · Agentic AI Engineer · Research Engineer · Applied Scientist . AI Manager > AI advisor 
 
 Building autonomous reasoning systems that create real value in production — not just demos that impress on Twitter.
 
