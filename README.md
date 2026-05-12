@@ -2,7 +2,7 @@
 
 # Ankur Sharma, PhD
 
-### Senior ML & Agentic AI Engineer
+### Agentic AI · ML · Computational Biology
 
 Building production multi-agent systems and reasoning-traceable AI for science.
 
@@ -158,13 +158,13 @@ Significance of hepatocyte polyploidization in liver physiology and pathology
 
 ---
 
-## 🎯 What I'm Looking For
+## 🎯 Open to Relevant Opportunities
 
-Senior / Staff ML Engineer · Agentic AI Engineer · Research Engineer · Applied Scientist . AI Manager > AI advisor 
+I am open to relevant roles globally — across industry, research, and startups — where agentic AI, ML, or computational biology intersects with real-world impact.
 
-Building autonomous reasoning systems that create real value in production — not just demos that impress on Twitter.
+If you are working on something ambitious at the intersection of AI and science, I'd love to hear from you.
 
-**Based in Singapore (PR)** — open to remote or relocation for the right team.
+**Based in Singapore (PR)** — open to remote, hybrid, or relocation anywhere in the world.
 
 ---
 
