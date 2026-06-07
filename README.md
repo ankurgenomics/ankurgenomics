@@ -23,6 +23,24 @@ LangGraph · Claude API · Multi-Agent Systems · AWS · Nextflow · Clinical Ge
 
 ## 🤖 Featured Agentic AI Projects
 
+### 🩺 [Reviewer2](https://github.com/ankurgenomics/Reviewer2) — Autonomous ACMG Variant Second Reviewer
+**New** | LangGraph · FastMCP · MCP Server · Pydantic v2 · Python
+
+Clinical genomics has a consistency problem. Two trained analysts applying the same 28-criterion ACMG framework to the same variant routinely reach different calls. Reviewer2 acts as an autonomous second reviewer: feed it a variant and a proposed classification, and it independently re-derives the ACMG call from evidence using a 4-node LangGraph pipeline, then flags exactly where the two calls diverge. Every criterion that fires is backed by a specific evidence sentence. No evidence, no flag -- enforced at the Pydantic model level, not by convention.
+
+**Tech:** LangGraph, FastMCP (Model Context Protocol), Pydantic v2, Ollama / Anthropic / OpenAI / Gemini, uv, ruff, mypy
+```bash
+git clone https://github.com/ankurgenomics/Reviewer2
+cd Reviewer2 && uv sync
+uv run reviewer2 demo   # 3 live cases, no API key needed with Ollama
+```
+
+- 21 tests passing, 86% action-band concordance vs expert-panel ClinVar classifications
+- Pydantic v2 validators enforce at the model level: no criterion can fire without grounding evidence
+- MCP server ready: any LLM agent that speaks Model Context Protocol can call it as a tool
+
+---
+
 ### 🦠 [outbreak-agent](https://github.com/ankurgenomics/outbreak-agent) — Infectious Disease Triage Pipeline
 **New** | LangGraph · Python · matplotlib · ReportLab
 
