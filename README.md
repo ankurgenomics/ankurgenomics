@@ -174,6 +174,10 @@ Significance of hepatocyte polyploidization in liver physiology and pathology
 **Peer-Reviewed** · Frontiers in Microbiology · 2018
 [Antiproliferative and antioxidative bioactive compounds in marine-derived endophytic fungus](https://www.frontiersin.org/journals/microbiology)
 
+**Technical Blog for Large Scale Data Management** · Amazon Web Services · 2025
+Using serverless for cross-organizations information exchange in genomic analysis (https://builder.aws.com/content/2yRrRdqamrcHxXj2oF1nJgtXoTU/using-serverless-for-cross-organizations-information-exchange-in-genomic-analysis)
+
+
 ---
 
 ## 🎯 Open to Relevant Opportunities
