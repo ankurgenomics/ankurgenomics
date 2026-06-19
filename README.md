@@ -41,6 +41,24 @@ uv run reviewer2 demo   # 3 live cases, no API key needed with Ollama
 
 ---
 
+### 🧫 [sentinel-amr](https://github.com/ankurgenomics/sentinel-amr) — Explainable AMR Classifier
+**New** | XGBoost · SHAP · LangGraph · Python
+
+Explainable, agentic antimicrobial resistance classifier for bacterial pathogen surveillance. Predicts resistance, names the genes that drove the call via SHAP TreeExplainer, detects organisms outside the training distribution, and escalates uncertainty to a human — with a full audit trail at every step.
+
+**Tech:** XGBoost, SHAP TreeExplainer, LangGraph StateGraph, alignment-free k-NN novelty detection, BV-BRC / CARD / VFDB
+```bash
+git clone https://github.com/ankurgenomics/sentinel-amr
+cd sentinel-amr && ./run.sh   # train + explain + novelty + demo, fully offline
+make demo-novel               # shows the novel-organism escalation path
+```
+
+- ROC-AUC 0.894 on a group-aware holdout — related isolates never leak across the split
+- Top drivers independently rediscovered: CTX-M-15, acrAB efflux pump, DNA topoisomerase IV
+- Novel-organism gate explicitly blocks the automated call when the sample has no database match
+
+---
+
 ### 🦠 [outbreak-agent](https://github.com/ankurgenomics/outbreak-agent) — Infectious Disease Triage Pipeline
 **New** | LangGraph · Python · matplotlib · ReportLab
 
