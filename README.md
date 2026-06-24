@@ -124,7 +124,7 @@ python prepare_data.py && python train.py   # reproduces the fine-tune end-to-en
 - Enhancers (`human_enhancers_cohn`, 3 seeds): accuracy 0.735, MCC 0.478 ± 0.003 (base model at chance, MCC −0.009)
 - Promoters (`human_nontata_promoters`): accuracy 0.872, MCC 0.747
 - Validation MCC peaked at epoch 1–2 then declined, so a low learning rate and validation-based selection matter more than longer training
-- 🤗 Model card: [ankur0050/nucleotide-transformer-v2-50m-genomicbenchmarks-ft](https://huggingface.co/ankur0050/nucleotide-transformer-v2-50m-genomicbenchmarks-ft) — card and metrics only; weights are not redistributed (base model is CC-BY-NC-SA-4.0)
+- 🤗 Model card: [ankur0050/nucleotide-transformer-v2-50m-genomicbenchmarks-ft](https://huggingface.co/ankur0050/nucleotide-transformer-v2-50m-genomicbenchmarks-ft)
 
 ---
 
