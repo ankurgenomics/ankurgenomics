@@ -6,6 +6,17 @@
 
 Building production multi-agent systems and reasoning-traceable AI for science.
 
+<img width="2400" height="1792" alt="ai_ecosytem_upwork" src="https://github.com/user-attachments/assets/002e94f4-f8bd-4e49-9a15-d3e0c9267bd7" />
+<img width="2400" height="1792" alt="work_type_skills_upwpork" src="https://github.com/user-attachments/assets/9e7793da-6728-4952-ab95-3788277d8781" />
+
+<img width="2400" height="1792" alt="what_sets_this_project_aaprt_upwork" src="https://github.com/user-attachments/assets/4b1cfe6f-690a-47e3-b539-8793def5e3b3" />
+<img width="2400" height="1792" alt="continue_imorivement_deployment_upwork" src="https://github.com/user-attachments/assets/b6543108-bee7-4cd6-905d-9a0c1eac000d" />
+
+
+
+
+
+
 [![Email](https://img.shields.io/badge/Email-ankurs103%40gmail.com-blue?style=flat-square&logo=gmail)](mailto:ankurs103@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-ankurit-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ankurit/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-View-00FFC6?style=flat-square)](https://ankurgenomics.github.io/agentic-genomics/)
