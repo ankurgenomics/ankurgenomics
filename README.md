@@ -19,7 +19,7 @@ Building production multi-agent systems and reasoning-traceable AI for science.
 
 [![Email](https://img.shields.io/badge/Email-ankurs103%40gmail.com-blue?style=flat-square&logo=gmail)](mailto:ankurs103@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-ankurit-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ankurit/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-View-00FFC6?style=flat-square)](https://ankurgenomics.github.io/agentic-genomics/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-View-00FFC6?style=flat-square)](https://ankur-portfolio-v2-sandy.vercel.app/)
 [![Google Scholar](https://img.shields.io/badge/Scholar-Publications-4285F4?style=flat-square&logo=google-scholar)](https://doi.org/10.32657/10356/155390)
 
 ---
@@ -144,24 +144,85 @@ genomics-skill run tcga-expression --gene TP53 --mode pan-cancer
 
 ---
 
-### 🔧 GenomicsOps AI
-**Personal side project** | Multi-agent orchestration · Claude API · RAG
+### 🐝 [adaptive-research-swarm](https://github.com/ankurgenomics/adaptive-research-swarm) — Non-Linear Multi-Agent System
+**New** | LangGraph · FastAPI · Docker
 
-5 specialized agents (Trigger → Log Fetcher → RAG → Classifier → JIRA Writer) built on weekends to explore autonomous diagnosis of genomic pipeline failures (DRAGEN, ICA, SGE/HPC).
+A supervisor-orchestrated system that plans its own agent roster at runtime instead of following a fixed pipeline. Three real graph cycles: a critic sends rejected work back to the exact agent for rework, a second cycle lets the critic decide the roster itself is missing a specialist and triggers a re-plan, and a human-rejection cycle routes free-text feedback through an LLM decision on how to respond. A code-enforced iteration/tool-call budget means a stuck run returns a typed `partial` result instead of looping forever.
 
-**Tech:** Multi-agent orchestration, Claude API, RAG, Python, JIRA/Confluence APIs
+**Tech:** LangGraph, FastAPI, Pydantic v2, multi-provider LLM fallback, Tavily/Exa, Langfuse, Docker
+```bash
+git clone https://github.com/ankurgenomics/adaptive-research-swarm
+cd adaptive-research-swarm && cp .env.example .env && docker compose up --build
+```
+
+- 100% completeness (24/24 expected facts), 16.7% hallucination rate — Anthropic-judged, reproducible
+- Same engine ships two presets (competitive intelligence, lead qualification) — proof it generalizes
+
+---
+
+### 🛡️ [enterprise-doc-intelligence](https://github.com/ankurgenomics/enterprise-doc-intelligence) — Guarded RAG with Injection Defense
+**New** | FastAPI · Chroma · RAGAS
+
+RAG for regulated documents (contracts, SOPs, financial reports): hybrid retrieval (BM25 + Chroma vector search, reciprocal rank fusion, cross-encoder reranking), span-grounded citations, and a groundedness guardrail that refuses to answer unsupported claims. Ships a live, reproducible prompt-injection defense test.
+
+**Tech:** FastAPI, Pydantic v2, rank_bm25 + Chroma, sentence-transformers, RAGAS, Docker
+```bash
+git clone https://github.com/ankurgenomics/enterprise-doc-intelligence
+cd enterprise-doc-intelligence && python scripts/generate_sample_docs.py && uvicorn app.main:app --reload
+```
+
+- RAGAS: 0.981 faithfulness, 1.000 context precision/recall
+- `python -m adversarial.run_injection_test` — hidden and visible injection payloads both neutralized before indexing
+
+---
+
+### 🔐 [FedClinic](https://github.com/ankurgenomics/fedclinic) — Federated Clinical Analysis
+**Daytona HackSprint Bronze** | FedSGD · Nosana GPU · MCP
+
+Federated learning across real Daytona sandboxes so patient data never leaves institutional boundaries. Ran a real gradient-inversion attack on a Nosana RTX 3090, reconstructed a real patient's record, then fixed it with differential privacy and measured the cost. Validated on 123 real MIMIC-IV hospital admissions. Exposes an MCP server for direct agent tool-calling.
+
+**Tech:** Python, FedSGD, PyTorch, Daytona, Nosana GPU, MCP
+
+- Attack residual: 9.4e-5 (succeeds) → 2.69 (fails) after the DP fix; model loss cost only 0.505 → 0.510
+
+---
+
+### 🧪 [lab-agent](https://github.com/ankurgenomics/lab-agent) — Multi-Instrument Lab Orchestration
+**Open source** | LLM function calling · LIMS · Ollama
+
+Natural-language orchestration of microscope, liquid-handler, and flow-cytometer workflows, with a safety validator blocking invalid tool calls before any hardware call fires. Async job tracking, LIMS writing per-well results to SQLite, closed-loop planning across 3 LLM backends (Ollama, Anthropic, Groq). Tested on real HeLa cell images (Broad Institute BBBC020).
+
+**Tech:** Python, LLM function calling, Ollama/Anthropic APIs, SQLite/SQLAlchemy, Micro-Manager, Opentrons API
+
+---
+
+### 🧬 [genome-arch](https://github.com/ankurgenomics/genome-arch) — From-Scratch Variant-Effect Architecture
+**Open source** | PyTorch · Benchmarked vs. 7 baselines
+
+Multi-scale block-convolution + dynamic sparse-attention + reverse-complement-equivariance architecture for cross-species non-coding variant prediction. Benchmarked with leakage-free, multi-seed evaluation against Enformer, Borzoi, DeepSEA, Sei, SpliceAI, BPNet, and ChromBPNet.
+
+**Tech:** PyTorch, Hugging Face Transformers, GitHub Actions CI/CD
+
+---
+
+### 🔬 [protein-ft](https://github.com/ankurgenomics/protein-ft) — ESM2 Fine-Tuning vs. Frozen Baseline
+**Open source** | PyTorch · FLIP benchmark
+
+Full-parameter ESM2 fine-tuning measured directly against a frozen-embedding linear probe on protein fitness-landscape prediction (FLIP GB1) — quantifying when full fine-tuning is worth its cost. Tests verify the frozen-probe mode produces exactly zero gradient into the backbone.
+
+**Tech:** PyTorch, Hugging Face Transformers, FLIP benchmark, GitHub Actions CI/CD
 
 ---
 
 ### ☁️ Autonomous Genomic Pipelines
 **Production cloud infrastructure** | AWS · Nextflow · Step Functions
 
-Self-optimizing WGS/RNA-seq workflows on AWS with adaptive resource allocation and automated QC gating. Processed 6,000+ samples with minimal human intervention.
+Self-optimizing WGS/RNA-seq workflows on AWS with adaptive resource allocation and automated QC gating. Processed 10,000+ samples with minimal human intervention.
 
 **Impact:**
 - 40% ↓ compute costs
 - 50% ↓ storage footprint
-- 400 TB genomic data managed
+- 1 PB genomic data managed
 
 **Tech:** Nextflow (DSL2), AWS Batch, Lambda, Step Functions, Docker, IaC
 
@@ -210,7 +271,30 @@ Related work: [gwas_nf](https://github.com/ankurgenomics/gwas_nf) — Nextflow p
 
 ---
 
+## 🏆 Hackathons, Talks & Recognition
+
+**3rd Place** · Global AI Construct Multi-Agent AI Challenge · Microsoft / OGP / HTX · 2026
+Architected a multi-agent system natively on Azure AI Foundry in a 3-hour build among ~100 engineers.
+
+**Bronze** · Daytona HackSprint · SGInnovate · 2026
+Solo entry. Built FedClinic, adversarially stress-tested with a real gradient-inversion attack and hardened with differential privacy.
+
+**Winner** · Illumina Internal AI Hackathon · 2026
+Built GWASplain, an AI-enabled interpretation tool for population genomics data.
+
+**Invited Speaker** · Lorong AI Healthcare x AI Forum · Ministry of Digital Development and Information, Singapore · Aug 2026
+Presented on clinical AI adoption, auditability, and evidence-based decision-making to VCs, researchers, and government stakeholders.
+
+**Stage Speaker** · AWS ASEAN Summit · 2023
+Invited talk to enterprise and government technology leaders across Southeast Asia, representing Mirxes.
+
+---
+
 ## 📚 Publications & Research
+
+**Newsletter** · "Slightly Intelligent" · LinkedIn · ongoing
+750+ subscribers, 10,000+ weekly views, 16 issues on agentic AI, evaluation methodology, and foundation-model critique.
+[Read on LinkedIn](https://www.linkedin.com/newsletters/slightly-intelligent-7460276303405985792)
 
 **PhD Thesis** · NTU Singapore · 2021
 [Age-dependent transcriptional and epigenetic alterations in mouse hepatocytes](https://doi.org/10.32657/10356/155390)
@@ -249,8 +333,8 @@ If you are working on something ambitious at the intersection of AI and science,
 
 - 📧 **Email:** [ankurs103@gmail.com](mailto:ankurs103@gmail.com)
 - 💼 **LinkedIn:** [linkedin.com/in/ankurit](https://www.linkedin.com/in/ankurit/)
-- 🌐 **Portfolio:** [ankurgenomics.github.io](https://ankurgenomics.github.io/agentic-genomics/)
-- 📄 **Resume:** [Download CV (PDF)](https://ankurgenomics.github.io/agentic-genomics/assets/Ankur_Sharma_Resume_2026.pdf)
+- 🌐 **Portfolio:** [ankur-portfolio-v2-sandy.vercel.app](https://ankur-portfolio-v2-sandy.vercel.app/)
+- 📄 **Resume:** [Download CV (PDF)](https://ankur-portfolio-v2-sandy.vercel.app/Ankur_Sharma_Resume_2026.pdf)
 
 ---
 
