@@ -144,6 +144,22 @@ genomics-skill run tcga-expression --gene TP53 --mode pan-cancer
 
 ---
 
+### 📊 [fiscal-graph](https://github.com/ankurgenomics/fiscal-graph) — MCP Tool-Calling + Multi-Agent Supervisor
+**New** | LangGraph · MCP · FastAPI
+
+Structured extraction, real MCP tool-calling, and a LangGraph multi-agent supervisor over a real government document — Singapore's FY2024 budget (Ministry of Finance). A local MCP server exposes date normalization as a callable tool; the LLM decides to invoke it itself. A supervisor routes queries between a Revenue Agent and an Expenditure Agent and synthesizes one answer, with full trace capture.
+
+**Tech:** LangGraph, langgraph-supervisor, MCP (local server), LangChain, Anthropic (Haiku/Sonnet), Pydantic v2, PyMuPDF, pdfplumber, FastAPI
+```bash
+git clone https://github.com/ankurgenomics/fiscal-graph
+cd fiscal-graph && pip install -r requirements.txt && python run_all.py
+```
+
+- Held-out routing eval: 8 queries never seen in the prompt or demo set — all routed to the correct agent(s)
+- 31 passing tests, CI on every push; `POST /query` FastAPI service over the supervisor
+
+---
+
 ### 🐝 [adaptive-research-swarm](https://github.com/ankurgenomics/adaptive-research-swarm) — Non-Linear Multi-Agent System
 **New** | LangGraph · FastAPI · Docker
 
